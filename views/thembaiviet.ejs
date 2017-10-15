@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../public/component/headQuanLy')%>
+</head>
+
+<body class="w3-content" style="max-width:1400px">
+    <%- include('../public/component/quanly')%>
+    <div class="w3-main" style="margin-left:250px">
+        <div class="w3-hide-large" style="margin-top:83px"></div>
+        <table class="table">
+            <thead>
+                <tr style="cursor: pointer">
+                    <th style="color: red">Tiêu Đề</th>
+                    <th style="color: red">Nội Dung</th>
+                    <th></th>   
+                </tr>
+                <tr>
+                    <form action="/baiviet/thembaiviet" method="POST" enctype="multipart/form-data">
+                        <th>
+                            <input type="text" name="title" class="form-control" placeholder="Tiêu Đề">
+                        </th>
+                        <th>
+                            <input type="text" name="content" class="form-control" placeholder="Nội Dung">
+                        </th>
+                        <th>
+                            <div class="fileinput fileinput-new" data-provides="fileinput">
+                                <span class="btn btn-default btn-file">
+                                    <input type="file" name="picture" hidden/>
+                                </span>
+                            </div>
+                        </th>
+
+                        <th>
+                            <button class="btn btn-primary btn-lg" type="submit">Thêm</button>
+                        </th>
+                    </form>
+                </tr>
+            </thead>
+            <tbody>
+                <%result.forEach(e =>{%>
+                    <tr>
+                        <td>
+                            <strong>
+                                <%= e.title%>
+                            </strong>
+                        </td>
+                        <td>
+                            <%= e.content%>
+                        </td>
+                        <td>
+                            <img src="./images/products/<%= e.picture%>" alt="<%= e.picture%>" class="img-responsive img-circle" style="width:80px; height: 100px;">
+                        </td>
+                    </tr>
+                    <%});%>
+            </tbody>
+        </table>
+    </div>
+
+    <%- include('../public/component/scriptQuanLy')%>
+</body>
+
+</html>

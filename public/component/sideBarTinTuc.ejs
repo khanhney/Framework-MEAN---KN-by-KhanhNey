@@ -1,0 +1,72 @@
+<div class="w3-main" style="margin-left:250px" >
+    
+      <!-- Push down content on small screens -->
+      <div class="w3-hide-large" style="margin-top:83px"></div>
+      
+      <!-- Top header -->
+      <!-- <header class="w3-container w3-small">
+        <div class="collapse navbar-collapse" id="myNavbar"  >
+            <div class="header" >
+              <div class="wrap">
+                <ul class="nav navbar-nav navbar-right">
+                    <li id="liDangKy"><a href="/dangKy"><span class="glyphicon glyphicon-user"></span> Đăng Ký</a></li>
+                    <li id="liDangNhap"><a href="/dangNhap"><span class="glyphicon glyphicon-log-in"></span> Đăng Nhập</a></li>
+                  </ul>
+              </div>
+            </div>
+          </div>
+      </header> -->
+
+      <!-- Tin Tức chính -->
+      <div class="w3-display-container w3-container">
+          <div class="row">
+            <div class="col-sm-12">
+                <h1 class="w3-opacity">Trang Tin Tức</h1>
+            </div>
+          </div>
+      </div>
+        <div class="w3-display-container w3-container">
+            <div class="row">    
+                <div class="col-sm-8">
+                        
+                            <img src="./images/products/<%= data[0].picture%>" class="img-thumbnail" style="width:100%"> <!--Lưu Ý ẢNH CHÍNH -->
+                            <div><p><strong id="titleTinTuc"><%= data[0].title%></strong></p></div>
+                            <div>
+                                <span><%= data[0].content%></span>
+                            </div>
+    
+                </div>
+                 <div class="col-sm-4">
+                         <div class="row">
+                            <div class="col-sm-12">
+                                    <img src="./images/products/<%= data[1].picture%>" class="img-thumbnail"style="width:100%"> <!--Lưu Ý ẢNH CHÍNH -->
+                                    <div><p><strong id="titleTinTuc"><%= data[1].title%></strong></p></div>
+                            </div>
+                         </div>
+                         <div class="row">
+                            <div class="col-sm-12">
+                                    <img src="./images/products/<%= data[2].picture%>" class="img-thumbnail"  style="width:100%"> <!--Lưu Ý ẢNH CHÍNH -->
+                                   <div><p><strong id="titleTinTuc"><%= data[2].title%></strong></p></div>
+                            </div>
+                         </div>
+                    </div>
+                    
+                    <% const index = data.length%>
+                    <%for(let i = 3; i<index;i++){%>
+                        <div class="col-sm-12">
+                                
+                                    <img src="./images/products/<%= data[i].picture%>" class="img-thumbnail" style="width:100%"> <!--Lưu Ý ẢNH CHÍNH -->
+                                    <div><p><strong id="titleTinTuc"><%= data[i].title%></strong></p></div>
+                                    <div>
+                                        <span><%= data[i].content%></span>
+                                    </div>
+            
+                        </div>
+                        <% }%>
+            
+                    
+            </div>
+        </div>
+  
+    <!-- end tin tức chính -->
+</div>
