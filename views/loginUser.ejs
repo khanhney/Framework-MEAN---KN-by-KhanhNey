@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Login Form</title>
+    <link rel="stylesheet" href="./css/demo.css">
+    <link rel="stylesheet" href="./css/login.css">
+
+</head>
+
+
+
+
+    <div class="main-content">
+
+        <!-- You only need this form and the form-login.css -->
+
+        <form class="form-login" method="POST" action="/dangNhapUser">
+
+            <div class="form-log-in-with-email">
+
+                <div class="form-white-background">
+
+                    <div class="form-title-row">
+                        <h1>Đăng Nhập User</h1>
+                    </div>
+
+                    <div class="form-row">
+                        <label>
+                            <span>Tài Khoản</span>
+                            <input type="text" name="username" value="" id="username">
+                        </label>
+                    </div>
+
+                    <div class="form-row">
+                        <label>
+                            <span>Mật Khẩu</span>
+                            <input type="password" name="password" value="" id="password">
+                        </label>
+                    </div>
+
+                    <div class="form-row">
+                        <button type="submit" onclick="demoFunc()">Đăng Nhập</button>
+                    </div>
+
+                </div>
+
+                <a href="/dangKy" class="form-forgotten-password">Tạo Tài Khoản</a>
+                <a href="/dangNhap" class="form-create-an-account">Đăng Nhập Admin</a>
+
+            </div>
+
+           
+
+        </form>
+
+    </div>
+    <script>
+        function demoFunc() {
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+            if(typeof(Storage) !== "undefined"){
+                localStorage.setItem("username_local", username);
+                localStorage.setItem("password_local", password);
+            }else{
+                alert("LocalStorage not avaliable!");
+                console.log("LocalStorage not aviliable!");
+            }
+        }
+    </script>
+</body>
+
+</html>

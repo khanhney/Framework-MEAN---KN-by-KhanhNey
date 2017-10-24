@@ -1,12 +1,111 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Hello Everybody</h1>
+<html>
+<title>Đồ Án CNPM - Thầy Phết</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- File add Footer -->
+<link rel="stylesheet" href="./css/search.css">
+<link rel="stylesheet" href="./css/style.css">
+<!-- <base href="https://www.w3schools.com"> -->
+<style>
+.w3-sidebar a {font-family: "Roboto", sans-serif}
+body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
+
+</style>
+<body class="w3-content" style="max-width:1200px">
+
+
+<!-- Sidebar/menu -->
+<%- include('../public/component/sidebar_menu')%>
+<!-- End SideBar/Menu -->
+
+
+<!-- Top menu on small screens -->
+<%- include('../public/component/menusmall')%>
+<!-- End Top small screens -->
+
+<!-- Header -->
+<%- include('../public/component/header')%>
+<!-- end Header -->
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- !PAGE CONTENT! -->
+<%- include('../public/component/content')%>
+<!-- END CONTENT -->
+
+
+<!-- Newsletter Modal -->
+<%- include('../public/component/modalKhuyenMai')%>
+<!-- End Model Ho Tro -->
+
+<!-- Footer -->
+<%- include('../public/component/footer')%>
+ <!-- End Footer -->
+
+
+
+
+<script>
+// Accordion 
+function myAccFunc() {
+    var x = document.getElementById("demoAcc");
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+    } else {
+        x.className = x.className.replace(" w3-show", "");
+    }
+}
+
+// Click on the "Jeans" link on page load to open the accordion for demo purposes
+document.getElementById("myBtn").click();
+
+
+// Script to open and close sidebar
+function w3_open() {
+    document.getElementById("mySidebar").style.display = "block";
+    document.getElementById("myOverlay").style.display = "block";
+}
+ 
+function w3_close() {
+    document.getElementById("mySidebar").style.display = "none";
+    document.getElementById("myOverlay").style.display = "none";
+}
+
+
+
+$(document).ready(function(){
+    if(typeof(Storage) !== "undefined"){
+        username = localStorage.getItem('username_local');
+        password = localStorage.getItem('password_local');
+        if(username == null || password == null){
+            document.getElementById('dangxuat').style.display = "none";
+            document.getElementById('ten').style.display = "none";
+            document.getElementById('dangnhap').style.display = "block";
+            document.getElementById('dangky').style.display = "block";
+        }  else{
+            // document.getElementById('khungDangVao').style.display = "none";
+            // document.getElementById('khungDangVao2').style.display = "block";
+            // document.getElementById('xinchao').innerHTML = ` Xin Chào, ${username}`;
+            document.getElementById('dangnhap').style.display = "none";
+            document.getElementById('dangky').style.display = "none";
+            document.getElementById('ten').style.display = "block";
+            document.getElementById('dangxuat').style.display = "block";
+        }
+    }
+});
+    
+
+</script>
+
+
 </body>
 </html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello Server</h1>
+    <%data.forEach(e =>{%>
+        <div>
+            <h1><%= e.nameProduct%></h1>    
+            <h2><%= e.newsProduct%></h2>
+            <h2 style="color: red"><%= e.priceProduct%></h2>
+            <img src="./images/products/<%= e.imageProduct%>" alt="<%= e.nameProduct%>" style="width: 250px;
+            height: 250px;">
+        </div>    
+        <hr>
+        <% })%>
+      
+                <%data2.forEach(r =>{%>
+                    <div>
+                            <img src="./images/products/<%= r.imageFontEnd%>" alt="<%= r.nameProduct%>" style="width: 250px;
+                            height: 250px;">
+                    </div>
+                    <% })%>
+       
+</body>
+</html>

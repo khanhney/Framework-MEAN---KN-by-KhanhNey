@@ -1,0 +1,120 @@
+<div class="w3-main" style="margin-left:250px" >
+        
+          <!-- Push down content on small screens -->
+          <div class="w3-hide-large" style="margin-top:83px"></div>
+          
+          <!-- Top header -->
+          <header class="w3-container w3-small" >
+            <div class="collapse navbar-collapse" id="myNavbar" >
+                <div class="header" >
+                  <div class="wrap">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li style="margin-top: 10px; margin-right: 20px;">
+                            <!-- <div class="row"> -->
+                                <!-- <div class="col-md-4 col-md-offset-3"> -->
+                                    <form action="/searchProduct" class="search-form" method="POST">
+                                        <div class="form-group has-feedback">
+                                        
+                                        <input type="text" class="form-control" name="searchProduct" id="searchProduct" placeholder="Tìm Kiếm">
+                                        <span class="glyphicon glyphicon-search form-control-feedback"></span>
+                                      </div>
+                                    </form>
+                                <!-- </div> -->
+                            <!-- </div> -->
+                        </li>
+                        
+                        <li id="dangnhap" ><a href="/dangKy"><span class="glyphicon glyphicon-user"></span> Đăng Ký</a></li>
+                        <li id="dangky"><a href="/dangNhapUser"><span class="glyphicon glyphicon-log-in"></span> Đăng Nhập</a></li>
+                        <li id="ten"><a href="#">Xin Chào, <span id="xinchao" style="color: red"></span></a></li>                        
+                        <li id="dangxuat"><a href="#" onclick="dangxuat()"><span class="glyphicon glyphicon-log-in"></span> Đăng Xuất</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+          </header>
+
+
+          <!-- div Search -->
+          <header class="w3-container w3-small" >
+              <div class="collapse navbar-collapse" id="myNavbar" >
+                  
+                </div>
+            </header>
+          <!-- <hea der class="w3-container w3-small" id="khungDangVao2">
+              <div class="collapse navbar-collapse" id="myNavbar" >
+                  <div class="header" >
+                    <div class="wrap">
+                      <ul class="nav navbar-nav navbar-right">
+                          <li id=""><a href="#"><span class="glyphicon glyphicon-log-in" id="xinchao" style="color: red"></span></a></li>                        
+                          <li id=""><a href="#" onclick="dangxuat()"><span class="glyphicon glyphicon-log-in"></span> Đăng Xuất</a></li>                                                    
+                        </ul>
+                    </div>
+                  </div>
+                </div>
+            </header> -->
+         
+          <!-- Image header -->
+          <div class="w3-display-container w3-container">
+              <% data2.forEach(r =>{%>
+              <img src="./images/products/<%= r.imageFontEnd%>" class="img-thumbnail" alt="Jeans" style="width:100%"> <!--Lưu Ý ẢNH CHÍNH -->
+              <% })%>
+            <div class="w3-display-topleft w3-text-white" style="padding:24px 48px">
+              <br><br><br>
+              <p><a href="#jeans" class="w3-button w3-black w3-padding-large w3-large">Sản Phẩm</a></p>
+            </div>
+          </div>
+          <div class="w3-container w3-text-red" id="jeans">
+            <hr>
+          </div>
+        
+          <!-- Begin Product -->
+          <div class="w3-row w3-grayscale">
+            <%data.forEach(e => { %>
+                <div class="w3-col l3 s6">
+                  <div class="w3-container">
+                    <div class="w3-display-container">
+                      <img src="./images/products/<%= e.imageProduct%>" alt="<%= e.nameProduct%>" class="img-responsive img-thumbnail" style="width:100%; height: 250px;">
+                      <!--1. image -->
+                      <span class="w3-tag w3-display-topleft"><%= e.newsProduct%></span>
+                      <!-- 2. Mới or default -->
+                      <div class="w3-display-middle w3-display-hover" ></div>
+                        <button class="w3-button w3-black" >Mua Ngay <i class="fa fa-shopping-cart"></i></button>
+                      </div>
+                    </div>
+                    <p style="margin-top: 10px;"><strong><%= e.nameProduct%></strong><br><b style="color: red"><%= e.priceProduct%> VNĐ</b></p>
+                    <!-- 3. Tên Sản Phẩm -->
+                    <!-- 4. Gía Sản Phẩm -->
+                  </div>
+                </div>
+                <%})%>
+          
+          <!-- End Product -->
+          <!-- Subscribe section -->
+          <div class="w3-container w3-black w3-padding-32">
+            <h1>Đăng Ký Nhận Mã Giảm Gía</h1>
+            <p>Nhập Địa chỉ Email ngay thôi</p>
+            <p><input class="w3-input w3-border" type="text" placeholder="Nhập Email tại đây" style="width:100%; color:black"></p> 
+            <button type="button" class="w3-button w3-red w3-margin-bottom">Đăng Ký</button>
+          </div>
+</div>
+<script>
+
+  const user =  localStorage.getItem('username_local') ;
+  document.getElementById('xinchao').innerHTML = user;
+  function dangxuat(){
+    if(typeof(Storage) !== "undefined"){
+      localStorage.removeItem('username_local');
+      localStorage.removeItem('password_local');
+      location.reload();
+    }
+  }
+  // bắt sự kiện với nút enter
+  $('#searchProduct').keypress(function(event){
+        var keycode = (event.keyCode ? event.keyCode : event.which);
+        if(keycode == '13'){     
+            const keySeacrh =  $("#searchProduct").val();
+
+        }
+    });
+    
+</script>

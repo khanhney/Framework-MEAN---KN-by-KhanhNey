@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../public/component/headQuanLy')%>
+    
+</head>
+
+<body class="w3-content" style="max-width:1400px">
+    <%- include('../public/component/quanly')%>
+    <div class="w3-main" style="margin-left:250px">
+        <div class="w3-hide-large" style="margin-top:83px"></div>
+        <table class="table">
+            <thead>
+                <tr style="cursor: pointer">
+                    <th style="color: red">Tên Sản Phẩm</th>
+                    <th style="color: red">Gía Sản Phẩm</th>
+                    <th style="color: red">Tình Trạng</th>
+                    <th></th>
+                    <th style="color: red">Xóa</th>
+                    <th style="color: blue">Sửa</th>
+                </tr>
+                <tr>
+                    <form action="/themProduct" method="POST" enctype="multipart/form-data">
+                        <th>
+                            <input type="text" name="nameProduct" class="form-control" placeholder="Tên Sản Phẩm">
+                        </th>
+                        <th>
+                            <input type="text" name="priceProduct" class="form-control" placeholder="Gía Sản Phẩm">
+                        </th>
+                        <th>
+                            <input type="text" name="newsProduct" class="form-control" placeholder="Tình Trạng">
+                        </th>
+                        <th>
+                            <div class="fileinput fileinput-new" data-provides="fileinput">
+                                <span class="btn btn-default btn-file">
+                                    <input type="file" name="imageProduct" hidden/>
+                                </span>
+                            </div>
+                        </th>
+
+                        <th>
+                            <button class="btn btn-primary btn-lg" type="submit">Thêm</button>
+                        </th>
+                    </form>
+                </tr>
+            </thead>
+            <tbody>
+                <%data.forEach(e =>{%>
+                    <tr>
+                        <td>
+                            <strong>
+                                <%= e.nameProduct%>
+                            </strong>
+                        </td>
+                        <td>
+                            <%= e.priceProduct%>
+                        </td>
+                        <td>
+                            <%= e.newsProduct%>
+                        </td>
+                        <td>
+                            <img src="./images/products/<%= e.imageProduct%>" alt="<%= e.nameProduct%>" class="img-responsive img-circle" style="width:80px; height: 100px;">
+                        </td>
+                        <td>
+                            <a href="/xoaProduct/<%= e._id%>">
+                                <button class="btn btn-warning">Xóa</button>
+                            </a>
+                        </td>
+                        <td>
+                            <a href="/suaProduct/<%= e._id%>">
+                                <button class="btn btn-primary">Sửa</button>
+                            </a>
+                        </td>
+                    </tr>
+                    <%});%>
+            </tbody>
+        </table>
+    </div>
+
+    <%- include('../public/component/scriptQuanLy')%>
+</body>
+
+</html>

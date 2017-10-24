@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../public/component/headQuanLy')%>
+</head>
+
+<body class="w3-content" style="max-width:1400px">
+    <%- include('../public/component/quanly')%>
+    <div class="w3-main" style="margin-left:250px">
+        <div class="w3-hide-large" style="margin-top:83px"></div>
+        <table class="table">
+            <thead>
+                <tr style="cursor: pointer">
+                    <th style="color: red">Tiêu Đề</th>
+                     
+                </tr>
+            </thead>
+            <tbody>
+                <%result.forEach(e =>{%>
+                    <tr>
+                        <td>
+                            <button class="btnXoaBaiViet"><a href="/baiviet/xoabaiviet/<%= e._id%>"> <%= e.title%></a></button>
+                        </td>
+                    </tr>
+                    <%});%>
+            </tbody>
+        </table>
+    </div>
+
+    <%- include('../public/component/scriptQuanLy')%>
+    <script>
+        $('.btnXoaBaiViet').on('click', function(){
+            swal({
+                title: "Bạn Có Muốn Xóa Không",
+                text: "Xóa là mất nhé cưng!!!",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        swal("Okie... Mày mất file rồi nhé", {
+                            icon: "success",
+                        });
+                    } else {
+                        swal("Xóa Thất Bại");
+                    }
+                });
+            });
+    </script>
+</body>
+
+</html>

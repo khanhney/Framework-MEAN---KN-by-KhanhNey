@@ -1,0 +1,79 @@
+<nav class="w3-sidebar w3-bar-block w3-white w3-collapse w3-top" style="z-index:3;width:250px" id="mySidebar">
+    <div class="w3-container w3-display-container w3-padding-16">
+        <i onclick="w3_close()" class="fa fa-remove w3-hide-large w3-button w3-display-topright"></i>
+        <a href="/">
+            <img src="./images/logos/faviconKhanhNey.png" alt="Logo" style="width: 150px; height: 150px;">
+        </a>
+    </div>
+    <div class="w3-padding-64 w3-large w3-text-grey" style="font-weight:bold">
+        <a onclick="myAccFunc1()" href="javascript:void(0)" class="w3-button w3-block w3-left-align" id="myBtn">
+            <strong>Sản Phẩm</strong>
+            <i class="fa fa-caret-down"></i>
+            <!--  w3-white  color: important-->
+        </a>
+        <div id="demoAcc1" class="w3-bar-block w3-hide w3-padding-large w3-medium">
+            <a href="/sanpham/themsanpham" class="w3-bar-item w3-button"><span class="glyphicon glyphicon-plus" style="color: black;
+                margin-right: 5px;">   </span> Thêm Mới Sản Phẩm</a>
+            <!-- w3-light-grey-->
+            <a href="/sanpham/danhsachsanpham" class="w3-bar-item w3-button"> <span class="glyphicon glyphicon-list-alt" style="color: black;
+                margin-right: 5px;">   </span> Danh Sách Sản Phẩm</a>
+            <a href="#" class="w3-bar-item w3-button"><span class="glyphicon glyphicon-bookmark" style="color: black;
+                margin-right: 5px;">   </span>Chuyên Mục</a>
+        </div>
+        <a onclick="myAccFunc2()" href="javascript:void(0)" class="w3-button w3-block w3-left-align" id="myBtn">
+            <strong>Bài Viết</strong>
+            <i class="fa fa-caret-down"></i>
+            <!--  w3-white  color: important-->
+        </a>
+        <div id="demoAcc2" class="w3-bar-block w3-hide w3-padding-large w3-medium">
+            <a href="/baiviet/thembaiviet" class="w3-bar-item w3-button"><span class="glyphicon glyphicon-plus" style="color: black;
+                margin-right: 5px;">   </span>Thêm Mới Bài Viết</a>
+            <!-- w3-light-grey-->
+            <a href="/baiviet/xoabaiviet" class="w3-bar-item w3-button"><span class="glyphicon glyphicon-trash" style="color: black;
+                margin-right: 5px;">   </span>Xóa Bài Viết</a>
+            <a href="#" class="w3-bar-item w3-button"><span class="glyphicon glyphicon-bookmark" style="color: black;
+                margin-right: 5px;">   </span>Chuyên Mục</a>
+        </div>
+        <a onclick="myAccFunc()" href="javascript:void(0)" class="w3-button w3-block w3-left-align" id="myBtn">
+            <strong>Cấu Hình</strong>
+            <i class="fa fa-caret-down"></i>
+            <!--  w3-white  color: important-->
+        </a>
+        <div id="demoAcc" class="w3-bar-block w3-hide w3-padding-large w3-medium">
+            <a href="/thongTinTaiKhoan" class="w3-bar-item w3-button"><span class="glyphicon glyphicon-user" style="color: black;
+                margin-right: 5px;">   </span>Thông Tin Tài Khoản	</a>
+            <!-- w3-light-grey-->
+            <a href="#" class="w3-bar-item w3-button"><span class="glyphicon glyphicon-pencil" style="color: black;
+                margin-right: 5px;">   </span>Đổi Mật Khẩu</a>
+        </div>
+
+        
+        <a href="/thoat" class="w3-bar-item w3-button">
+            <strong>Thoát</strong>
+        </a>
+</nav>
+<div class="w3-main" style="margin-left:250px">
+    <br>
+    <br>
+    <br>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="col-sm-4 col-sm-offset-3">
+
+                <form action="" class="search-form">
+                    <div class="form-group has-feedback">
+
+                        <input type="text" class="form-control" name="search" id="search" placeholder="Tìm Kiếm">
+                        <span class="glyphicon glyphicon-search form-control-feedback"></span>
+                    </div>
+                </form>
+
+            </div>
+            <div class="col-sm-4" id="searchM" style="margin-top: 7px;font-size: 20px;
+                     font-weight: bolder;">
+                <strong>Tìm Kiếm</strong>
+            </div>
+        </div>
+    </div>
+</div>
